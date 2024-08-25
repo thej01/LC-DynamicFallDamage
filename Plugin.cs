@@ -67,7 +67,7 @@ namespace DynamicFallDamage
     {
         private const string modGUID = "thej01.lc.DynamicFallDamage";
         private const string modName = "DynamicFallDamage";
-        private const string modVersion = "1.0.0";
+        private const string modVersion = "1.0.1";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -78,9 +78,7 @@ namespace DynamicFallDamage
         private void Awake()
         {
             if (Instance == null)
-            {
                 Instance = this;
-            }
 
             fallLogger.Init(modGUID);
 
@@ -91,7 +89,7 @@ namespace DynamicFallDamage
 
             fallLogger.Log("Patching DynamicFallDamageMod...", BepInEx.Logging.LogLevel.Info, LogLevelConfig.Everything);
             harmony.PatchAll(typeof(DynamicFallDamageMod));
-            fallLogger.Log("Patched OmegaCore.", BepInEx.Logging.LogLevel.Info, LogLevelConfig.Everything);
+            fallLogger.Log("Patched DynamicFallDamageMod.", BepInEx.Logging.LogLevel.Info, LogLevelConfig.Everything);
 
             fallLogger.Log("Patching PlayerControllerBPatch...", BepInEx.Logging.LogLevel.Info, LogLevelConfig.Everything);
             harmony.PatchAll(typeof(PlayerControllerBPatch));
@@ -101,7 +99,7 @@ namespace DynamicFallDamage
         public static int fallDamageMin = 30;
         public static int fallDamageMax = 200;
 
-        public static float fallValueRangeMin = 35;
-        public static float fallValueRangeMax = 100;
+        public static float fallValueRangeMin = 38f;
+        public static float fallValueRangeMax = 63.5f;
     }
 }
